@@ -1,4 +1,5 @@
-﻿
+﻿@using FilmFinder.Data.Models
+@model IEnumerable<Film>
 @{
     Layout = null;
 }
@@ -11,5 +12,22 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
+    @if (Model.Count() > 0)
+    {
+        @foreach (var f in Model)
+        {
+            <h1>@f.name</h1>
+            <h2>Жанр: </h2>@f.ganre.name<br />
+            <h2>Актёры: </h2>
+            <br />
+            @foreach (var fa in f.FilmActor)
+            {
+                @fa.Actor.fullName
+                <br />
+            }
+
+        <br />
+        }
+    }
 </body>
 </html>

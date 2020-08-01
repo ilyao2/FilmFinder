@@ -1,4 +1,5 @@
 ﻿using FilmFinder.Data.Interfaces;
+using FilmFinder.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

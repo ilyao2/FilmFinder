@@ -1,5 +1,6 @@
 ﻿using FilmFinder.Data.Interfaces;
 using FilmFinder.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,28 +17,28 @@ namespace FilmFinder.Data.Repository
             dbContent = content;
         }
 
-        public IEnumerable<Film> AllFilms => dbContent.Film;
+        public IEnumerable<Film> AllFilms => dbContent.Film.Include(f => f.ganre).Include(f => f.FilmActor).ThenInclude(fa => fa.Actor);
 
         public IEnumerable<Film> FilmsWithActor(Actor actor)
         {
-            var filmActor = dbContent.FilmActor.Where(fa => fa.ActorId == actor.id);
+            var filmActor = dbContent.FilmActor.Where(fa => fa.ActorId == actor.id).Include(fa => fa.Film).Include(fa => fa.Actor);
 
             List<Film> result = new List<Film>();
             foreach(var fa in filmActor)
             {
-                result.AddRange(dbContent.Film.Where(f => f.FilmActor.Contains(fa)));
+                result.AddRange(dbContent.Film.Where(f => f.FilmActor.Contains(fa)).Include(f => f.ganre).Include(f => f.FilmActor).ThenInclude(fa => fa.Actor));
             }
             return result;
         }
 
         public IEnumerable<Film> FilmsWithGenre(Genre genre)
         {
-            return dbContent.Film.Where(f => f.ganre == genre);
+            return dbContent.Film.Where(f => f.ganre == genre).Include(f => f.ganre).Include(f => f.FilmActor).ThenInclude(fa => fa.Actor);
         }
 
         public IEnumerable<Film> FilmsWithName(string name)
         {
-            return dbContent.Film.Where(f => f.name.ToLower().Contains(name.ToLower()));
+            return dbContent.Film.Where(f => f.name.ToLower().Contains(name.ToLower())).Include(f => f.ganre).Include(f => f.FilmActor).ThenInclude(fa => fa.Actor);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FilmFinder.Data;
 using FilmFinder.Data.Interfaces;
+using FilmFinder.Data.Models;
 using FilmFinder.Data.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -47,6 +48,25 @@ namespace FilmFinder
 
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
+
+            /*DbContent db;
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                db = scope.ServiceProvider.GetRequiredService<DbContent>();
+                Genre g1 = new Genre { name = "Fantasy" };
+                Film f1 = new Film { name = "Pirates of the Caribbean", ganre =  g1 };
+                Actor a1 = new Actor { fullName = "John Christopher «Johnny» Depp" };
+
+                db.Add(g1);
+                db.SaveChanges();
+                db.Add(f1);
+                db.SaveChanges();
+                db.Add(a1);
+                db.SaveChanges();
+                f1.FilmActor.Add(new FilmActor { FilmId = f1.id, ActorId = a1.id }); ;
+                db.SaveChanges();
+            }*/
+            
             
         }
     }
