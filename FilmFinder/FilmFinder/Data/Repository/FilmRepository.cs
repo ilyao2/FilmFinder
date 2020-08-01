@@ -20,7 +20,14 @@ namespace FilmFinder.Data.Repository
 
         public IEnumerable<Film> FilmsWithActor(Actor actor)
         {
-            return dbContent.Film.Where(f => f.actors.Contains(actor));
+            var filmActor = dbContent.FilmActor.Where(fa => fa.ActorId == actor.id);
+
+            List<Film> result = new List<Film>();
+            foreach(var fa in filmActor)
+            {
+                result.AddRange(dbContent.Film.Where(f => f.FilmActor.Contains(fa)));
+            }
+            return result;
         }
 
         public IEnumerable<Film> FilmsWithGenre(Genre genre)

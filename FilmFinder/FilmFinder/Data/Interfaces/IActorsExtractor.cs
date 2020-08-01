@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FilmFinder.Data.Interfaces
 {
-    interface IActorsExtractor
+    public interface IActorsExtractor
     {
         IEnumerable<Actor> AllActors { get; }
         IEnumerable<Actor> ActorsWithName(string name);

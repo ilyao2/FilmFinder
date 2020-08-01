@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FilmFinder.Data.Interfaces
 {
-    interface IGenreExtractor
+    public interface IGenresExtractor
     {
         IEnumerable<Genre> AllGeneres { get; }
         IEnumerable<Genre> GenresWithName(string name);

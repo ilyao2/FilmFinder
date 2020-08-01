@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FilmFinder.Data;
+using FilmFinder.Data.Interfaces;
+using FilmFinder.Data.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,6 +30,9 @@ namespace FilmFinder
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DbContent>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
+            services.AddTransient<IFilmsExtractor, FilmRepository>();
+            services.AddTransient<IActorsExtractor, ActorRepository>();
+            services.AddTransient<IGenresExtractor, GenreRepository>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 

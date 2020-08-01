@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FilmFinder.Data.Repository
 {
-    public class GenreRepository : IGenreExtractor
+    public class GenreRepository : IGenresExtractor
     {
         private readonly DbContent dbContent;
 

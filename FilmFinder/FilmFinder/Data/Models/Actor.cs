@@ -9,11 +9,11 @@ namespace FilmFinder.Data.Models
     {
         public int id { get; set; }
         public string fullName { get; set; }
-        public IEnumerable<Film> films { get; set; }
+        public virtual ICollection<FilmActor> FilmActor { get; set; }
 
         public Actor()
         {
-            films = new List<Film>();
+            FilmActor = new List<FilmActor>();
         }
     }
 }
