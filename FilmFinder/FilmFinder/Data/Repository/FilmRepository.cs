@@ -23,10 +23,11 @@ namespace FilmFinder.Data.Repository
         {
             var filmActor = dbContent.FilmActor.Where(fa => fa.ActorId == actor.id).Include(fa => fa.Film).Include(fa => fa.Actor);
 
-            List<Film> result = new List<Film>();
+            IEnumerable<Film> result = new List<Film>();
             foreach(var fa in filmActor)
             {
-                result.AddRange(dbContent.Film.Where(f => f.FilmActor.Contains(fa)).Include(f => f.ganre).Include(f => f.FilmActor).ThenInclude(fa => fa.Actor));
+                IEnumerable<Film> temp = dbContent.Film.Where(f => f.id == fa.FilmId).Include(f => f.ganre).Include(f => f.FilmActor).ThenInclude(fai => fai.Actor);
+                result = result.Union(temp);
             }
             return result;
         }

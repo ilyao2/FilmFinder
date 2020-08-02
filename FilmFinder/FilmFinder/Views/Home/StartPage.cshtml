@@ -1,33 +1,25 @@
-﻿@using FilmFinder.Data.Models
-@model IEnumerable<Film>
-@{
-    Layout = null;
-}
+﻿
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-</head>
-<body>
-    @if (Model.Count() > 0)
+@if (Model.Films.Count > 0)
+{
+    @foreach (var f in Model.Films)
     {
-        @foreach (var f in Model)
+        <h1>@f.name</h1>
+        <h2>Жанр: </h2>
+        @f.ganre.name
+        <br />
+        <h2>Актёры: </h2>
+        <br />
+        @foreach (var fa in f.FilmActor)
         {
-            <h1>@f.name</h1>
-            <h2>Жанр: </h2>@f.ganre.name<br />
-            <h2>Актёры: </h2>
+            @fa.Actor.fullName
             <br />
-            @foreach (var fa in f.FilmActor)
-            {
-                @fa.Actor.fullName
-                <br />
-            }
+        }
 
         <br />
-        }
     }
-</body>
-</html>
+}
+else
+{
+    <p>Фильмов не найдено</p>
+}

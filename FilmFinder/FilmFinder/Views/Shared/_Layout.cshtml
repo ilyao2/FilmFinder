@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <form method="post" action="">
+        <label>Название фильма:</label><br />
+        <input type="text" name="name" /><br />
+
+        <label>Жанр:</label><br />
+        <input type="text" name="genre" /><br />
+
+
+        <label>Актёр:</label><br />
+        <input type="text" name="actor" /><br />
+
+        <input type="submit" value="Отправить" />
+    </form>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
