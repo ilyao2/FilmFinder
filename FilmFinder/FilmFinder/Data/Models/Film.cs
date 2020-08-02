@@ -9,6 +9,7 @@ namespace FilmFinder.Data.Models
     {
         public int id { get; set; }
         public string name { get; set; }
+        public string imgPath { get; set; }
         public Genre ganre { get; set; }
         public ICollection<FilmActor> FilmActor { get; set; }
         
