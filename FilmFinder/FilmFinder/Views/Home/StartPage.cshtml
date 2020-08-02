@@ -4,33 +4,29 @@
 {
     @foreach (var f in Model.Films)
     {
-        <h1>@f.name</h1>
-        <h2>Жанр: </h2>
-        @f.ganre.name
-        <br />
-        <h2>Актёры: </h2>
-        <br />
-        @foreach (var fa in f.FilmActor)
-        {
-            @fa.Actor.fullName
-            <br />
-        }
-
-        <br />
+        
+    <div class="film_ticket">
+        <div class="info">
+            <h1>@f.name</h1>
+            <h2>Жанр: </h2>
+            <p>@f.ganre.name</p>
+            <h2>Актёры: </h2>
+            <p>
+                @foreach (var fa in f.FilmActor)
+                {
+                    @fa.Actor.fullName
+                    <br />
+                }
+            </p>
+        </div>
+        <div class="cardWrepper">
+            <div class="card">
+                <div class="poster"></div>
+            </div>
+        </div>
+    </div>
     }
 
-    <h2>Список всех жанров</h2>
-    @foreach (var g in Model.AllGenres)
-    {
-        @g
-        <br />
-    }
-    <h2>Список всех актёров</h2>
-    @foreach (var a in Model.AllActors)
-    {
-        @a
-        <br />
-    }
 }
 else
 {

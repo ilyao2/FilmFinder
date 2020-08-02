@@ -1,0 +1,95 @@
+﻿.wrepper {
+    width: 90%;
+    margin: auto;
+    min-width: 1000px;
+}
+body {
+    background-color: #e9d5c4;
+    font-family: 'Balsamiq Sans', cursive;
+}
+p {
+    margin-left: 15px;
+}
+form {
+    width: 100%;
+    background-color: #d9ac8d;
+    display: table;
+    min-height: 70px;
+}
+input {
+    border-radius: 20px;    
+}
+.search_block {
+    width: 300px;
+    margin: auto;
+    border: solid 1px black;
+    display: table;
+    background-color: #a5613c;
+}
+.search_block::after{
+    clear: both;
+}
+
+.search_element {
+    width: 300px;
+    margin: 10px;
+}
+
+.rbody {
+    background-color: #d9ac8d;
+    position: relative;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.cardWrepper {
+    float: right;
+    margin: 0;
+    width: 500px;
+    height: 500px;
+    color: #200772;
+}
+
+.card {
+    margin: auto;
+    background-color: #333333;
+    width: 100%;
+    height: 100%;
+    filter: brightness(1);
+    box-shadow: 10px 10px 10px #000;
+    transform-origin: center center;
+    -moz-transform-origin: center center;
+    border-radius: 5px;
+}
+.info {
+    float: left;
+    margin: 0;
+    width: 300px;
+    min-height: 500px;
+    padding-left: 50px;
+}
+.poster {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-image: url('https://images-na.ssl-images-amazon.com/images/I/91fPdJwTMBL.SL1500.jpg');
+    border-radius: 5px;
+}
+
+.film_ticket {
+    margin: 20px auto;
+    width: 1000px;
+    min-height: 550px;
+    display: table;
+    background-color: #683309;
+}
+
+.film_ticket::after{
+    clear:both;
+}
