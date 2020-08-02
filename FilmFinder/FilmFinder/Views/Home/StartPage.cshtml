@@ -18,6 +18,19 @@
 
         <br />
     }
+
+    <h2>Список всех жанров</h2>
+    @foreach (var g in Model.AllGenres)
+    {
+        @g
+        <br />
+    }
+    <h2>Список всех актёров</h2>
+    @foreach (var a in Model.AllActors)
+    {
+        @a
+        <br />
+    }
 }
 else
 {

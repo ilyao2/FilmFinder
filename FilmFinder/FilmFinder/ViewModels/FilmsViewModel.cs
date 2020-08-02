@@ -16,6 +16,8 @@ namespace FilmFinder.ViewModels
         public FilmsViewModel()
         {
             Films = new List<Film>();
+            AllGenres = new List<string>();
+            AllActors = new List<string>();
         }
 
         public void Add(Film film)
@@ -30,14 +32,15 @@ namespace FilmFinder.ViewModels
         }
         public void AddRange(IEnumerable<Film> films)
         {
-            films = films.Except(Films);
-            Films.AddRange(films);
-            foreach (var f in films)
+            var needFilms = films.Except(Films);
+            foreach (var f in needFilms)
             {
                 AllGenres.Add(f.ganre.name);
                 foreach (var fa in f.FilmActor)
                     AllActors.Add(fa.Actor.fullName);
             }
+
+            Films.AddRange(needFilms);
         }
     }
 }
