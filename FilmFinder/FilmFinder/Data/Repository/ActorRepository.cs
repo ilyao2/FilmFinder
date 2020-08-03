@@ -16,11 +16,11 @@ namespace FilmFinder.Data.Repository
         {
             dbContent = content;
         }
-        public IEnumerable<Actor> AllActors => dbContent.Actor.Include(a => a.FilmActor).ThenInclude(fa => fa.Film).ThenInclude(f => f.ganre);
+        public IEnumerable<Actor> AllActors => dbContent.Actor.Include(a => a.FilmActor).ThenInclude(fa => fa.Film).ThenInclude(f => f.genre);
 
         public IEnumerable<Actor> ActorsWithName(string name)
         {
-            return dbContent.Actor.Where(a => a.fullName.ToLower().Contains(name.ToLower())).Include(a => a.FilmActor).ThenInclude(fa => fa.Film).ThenInclude(f => f.ganre);
+            return dbContent.Actor.Where(a => a.fullName.ToLower().Contains(name.ToLower())).Include(a => a.FilmActor).ThenInclude(fa => fa.Film).ThenInclude(f => f.genre);
         }
     }
 }

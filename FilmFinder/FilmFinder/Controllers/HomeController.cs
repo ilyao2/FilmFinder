@@ -48,7 +48,7 @@ namespace FilmFinder.Controllers
             {
                 var genres = genresExtractor.GenresWithName(genre);
                 foreach (var g in genres)
-                    fvm2.AddRange(filmsExtractor.FilmsWithGenre(g));
+                    fvm2.AddRange(filmsExtractor.FilmsWithGenre(g).Except(fvm2.Films));
             }
             else
                 fvm2.AddRange(filmsExtractor.AllFilms);
@@ -56,7 +56,7 @@ namespace FilmFinder.Controllers
             {
                 var actors = actorsExtractor.ActorsWithName(actor);
                 foreach (var a in actors)
-                    fvm3.AddRange(filmsExtractor.FilmsWithActor(a));
+                    fvm3.AddRange(filmsExtractor.FilmsWithActor(a).Except(fvm3.Films));
             }
             else
                 fvm3.AddRange(filmsExtractor.AllFilms);

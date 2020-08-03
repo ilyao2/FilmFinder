@@ -15,7 +15,7 @@ namespace FilmFinder.Data.Repository
         {
             dbContent = content;
         }
-        public IEnumerable<Genre> AllGeneres => dbContent.Genre;
+        public IEnumerable<Genre> AllGenres => dbContent.Genre;
 
         public IEnumerable<Genre> GenresWithName(string name)
         {

@@ -22,22 +22,32 @@ namespace FilmFinder.ViewModels
 
         public void Add(Film film)
         {
+            if (film == null)
+                return;
             if (!Films.Contains(film))
             {
                 Films.Add(film);
-                AllGenres.Add(film.ganre.name);
-                foreach (var fa in film.FilmActor)
-                    AllActors.Add(fa.Actor.fullName);
+                if (film.genre != null)
+                    AllGenres.Add(film.genre.name);
+                if (film.FilmActor != null)
+                    foreach (var fa in film.FilmActor)
+                        if (fa.Actor != null)
+                            AllActors.Add(fa.Actor.fullName);
             }
         }
         public void AddRange(IEnumerable<Film> films)
         {
+            if (films == null)
+                return;
             var needFilms = films.Except(Films);
             foreach (var f in needFilms)
             {
-                AllGenres.Add(f.ganre.name);
-                foreach (var fa in f.FilmActor)
-                    AllActors.Add(fa.Actor.fullName);
+                if (f.genre != null)
+                    AllGenres.Add(f.genre.name);
+                if (f.FilmActor != null)
+                    foreach (var fa in f.FilmActor)
+                        if (fa.Actor != null)
+                            AllActors.Add(fa.Actor.fullName);
             }
 
             Films.AddRange(needFilms);

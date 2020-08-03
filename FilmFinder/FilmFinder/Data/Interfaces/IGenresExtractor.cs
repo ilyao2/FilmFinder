@@ -8,7 +8,7 @@ namespace FilmFinder.Data.Interfaces
 {
     public interface IGenresExtractor
     {
-        IEnumerable<Genre> AllGeneres { get; }
+        IEnumerable<Genre> AllGenres { get; }
         IEnumerable<Genre> GenresWithName(string name);
     }
 }
