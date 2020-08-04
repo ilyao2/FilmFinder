@@ -9,7 +9,7 @@
         <div class="info">
             <h1>@f.name</h1>
             <h2>Жанр: </h2>
-            <p>@f.ganre.name</p>
+            <p>@f.genre.name</p>
             <h2>Актёры: </h2>
             <p>
                 @foreach (var fa in f.FilmActor)
@@ -21,7 +21,7 @@
         </div>
         <div class="cardWrepper">
             <div class="card">
-                <div class="poster" style="background-image: url('@f.imgPath');"></div>
+                <div class="poster" style="background-image: url('img/@f.imgPath');"></div>
             </div>
         </div>
     </div>
