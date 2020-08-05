@@ -39,7 +39,7 @@ public interface IActorsExtractor
 
 GET request Route("")
 
-it returns html with all films
+Returns html with all films
 
 #### StartPage(filmName, genreName, actorName)
 
@@ -47,47 +47,46 @@ POST request Route("")
 
 use for html form
 
-if parametr == null then returns all films
+if parameter == null then returns all films 
 
-else get all films witch name contains parametr
+else gets all films that contain parameter in their name
 
-so it return intersects of 3 pack of films by 3 parametr
+finally returns intersection of 3 pack of films by 3 parameters 
 
 ## View
 
-1 page with search form and list of films
+1 page with search form and list of films 
 
-filmPoster use my JS script for moving onMouseEnter onMouseMove
+filmPoster uses my JS script for moving onMouseEnter onMouseMove
 
 i like it)))
 
 ## My additions
 
-if DB is empty, init will add some film with genres and actors
+if DB is empty, init adds some films with genres and actors
 
 ***
 
-now project haven't web interface for appending models in DB
+for now project has no web interface for appending models in DB
 
-it need admin panel witch will use web interface
+it needs an admin panel which is going to use web interface
 
 ***
 
-front is very ugly, but I'm not an painter, I can make up on a picture
+the front is very ugly, but I'm not a designer, however I can make it according to layout
 
 but only with clear css, js
 
-may be bootstrap and JQuery, but i don't like it
+may be using bootstrap and JQuery, but i don't like it 
 
 ***
 
-the movie search algorithm turned out to be not the most optimal
+the movie search algorithm turned out to be not the optimal one 
 
 but I have thoughts on how to make it a little better
 
 ***
+this project has my first unit-tests 
 
-this project have my first unit-tests
-
-# So it my first project with ASP and Entity
+# So it’s my first project with ASP and Entity
 
