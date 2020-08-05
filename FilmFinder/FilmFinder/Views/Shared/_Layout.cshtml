@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/my_css.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrepper">
+        <form method="post" action="">
+            <div class="search_block">
+                <div class="search_element">
+                    <label>Название фильма:</label>
+                    <input type="text" name="name" style="float: right" />
+                </div>
+
+
+                <div class="search_element">
+                    <label>Жанр:</label>
+                    <input type="text" name="genre" style="float: right" />
+                </div>
+
+
+                <div class="search_element">
+                    <label>Актёр:</label>
+                    <input type="text" name="actor" style="float: right" />
+                </div>
+
+                <div class="search_element">
+                    <input type="submit" value="Найти" style="margin: 20px 0 5px; float: right; width:100%" />
+                </div>
+            </div>
+        </form>
+        <div class="rbody">
+            @RenderBody()
+        </div>
+    </div>
+    <script src="~/js/script.js" type="text/javascript"></script>
+</body>
+</html>
